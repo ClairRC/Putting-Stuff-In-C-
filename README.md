@@ -9,7 +9,7 @@ Currently, only some basic data structures have bene implemented, and my plans f
 ## Data Structure Structure
 The data structures I've implemented use void pointers so you can put anything in, and it stores a pointer to a copy of the data. So if you pass in strings, it'll store void pointers to strings in memory. Thus, it is up to the user to keep track of what they are passing in and the type they are passing in. I've implemented it this way because it is more flexible for the user despite being less safe.
 
-##TO-DO
+## TO-DO
 * Make function names less tragic
 * Finish hash map
 * Add event handling
