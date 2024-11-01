@@ -48,7 +48,7 @@ HashMapNode* createHashMapNode(char* key, void* value, size_t size) {
 
 	if (newNode == NULL)
 		return NULL;
-
+	
 	int keySize = 0;
 	while (key[keySize++] != NULL);
 
