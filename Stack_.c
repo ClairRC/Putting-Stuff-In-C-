@@ -22,30 +22,30 @@ Stack* initStack(size_t size) {
 	return stack;
 }
 
-void push(Stack* stack, void* data) {
+void stPush(Stack* stack, void* data) {
 	if (stack == NULL)
 		return;
 
-	add(stack->list, data);
+	alAdd(stack->list, data);
 	++stack->size;
 }
 
-void pop(Stack* stack) {
+void stPop(Stack* stack) {
 	if (stack == NULL || stack->list == NULL)
 		return;
 
-	removeAtIndex(stack->list, stack->list->size-1);
+	alRemoveAtIndex(stack->list, stack->list->size-1);
 	--stack->size;
 }
 
-void* peekStack(Stack* stack) {
+void* stPeek(Stack* stack) {
 	if (stack == NULL || stack->list == NULL)
 		return NULL;
 
-	return get(stack->list, stack->list->size - 1);
+	return alGetFromIndex(stack->list, stack->list->size - 1);
 }
 
-void deleteStack(Stack* stack) {
+void stDelete(Stack* stack) {
 	if (stack == NULL)
 		return;
 
@@ -54,10 +54,10 @@ void deleteStack(Stack* stack) {
 		return;
 	}
 
-	deleteArrayList(stack->list);
+	alDelete(stack->list);
 	free(stack);
 }
 
-int stackIsEmpty(Stack* stack) {
+int stIsEmpty(Stack* stack) {
 	return stack->size == 0;
 }

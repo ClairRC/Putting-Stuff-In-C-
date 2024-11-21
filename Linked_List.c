@@ -20,7 +20,7 @@ LinkedList* initLinkedList() {
 }
 
 //Create new Node
-Node* createNode(void* data, size_t size) {
+Node* llCreateNode(void* data, size_t size) {
 	Node* newNode = (Node*) malloc(sizeof(Node));
 
 	//Return if allocation fails
@@ -44,11 +44,11 @@ Node* createNode(void* data, size_t size) {
 }
 
 //Insert at head
-void insertAtHead(LinkedList* list, void* data, size_t size) {
+void llInsertAtHead(LinkedList* list, void* data, size_t size) {
 	if (list == NULL)
 		return;
 
-	Node* newNode = createNode(data, size);
+	Node* newNode = llCreateNode(data, size);
 
 	//Return if memory allocation fails
 	if (newNode == NULL)
@@ -74,11 +74,11 @@ void insertAtHead(LinkedList* list, void* data, size_t size) {
 }
 
 //Insert at tail
-void insertAtTail(LinkedList* list, void* data, size_t size) {
+void llInsertAtTail(LinkedList* list, void* data, size_t size) {
 	if (list == NULL)
 		return;
 
-	Node* newNode = createNode(data, size);
+	Node* newNode = llCreateNode(data, size);
 
 	//Return if allocation failse
 	if (newNode == NULL)
@@ -104,13 +104,13 @@ void insertAtTail(LinkedList* list, void* data, size_t size) {
 }
 
 //Remove at head
-void removeAtHead(LinkedList* list) {
+void llRemoveAtHead(LinkedList* list) {
 	if (list == NULL || list->head == NULL)
 		return;
 
 	//If only 1 item in list, call removeAllNodes
 	if (list->head == list->tail) {
-		removeAllNodes(list);
+		llRemoveAllNodes(list);
 		return;
 	}
 
@@ -131,13 +131,13 @@ void removeAtHead(LinkedList* list) {
 }
 
 //Remove at tail
-void removeAtTail(LinkedList* list) {
+void llRemoveAtTail(LinkedList* list) {
 	if (list == NULL || list->tail == NULL)
 		return;
 
 	//If only 1 item in list, call removeAllNodes
 	if (list->head == list->tail) {
-		removeAllNodes(list);
+		llRemoveAllNodes(list);
 		return;
 	}
 
@@ -158,7 +158,7 @@ void removeAtTail(LinkedList* list) {
 }
 
 //Remove all nodes
-void removeAllNodes(LinkedList* list) {
+void llRemoveAllNodes(LinkedList* list) {
 	if (list == NULL || (list->head == NULL && list->tail == NULL))
 		return;
 
@@ -182,7 +182,7 @@ void removeAllNodes(LinkedList* list) {
 }
 
 //Return data at index
-void* getAtIndex(LinkedList* list, int index) {
+void* llGetAtIndex(LinkedList* list, int index) {
 	if (list == NULL || index >= list->size || index < 0)
 		return NULL;
 
@@ -197,14 +197,14 @@ void* getAtIndex(LinkedList* list, int index) {
 }
 
 //Delete all nodes and list from the heap
-void deleteLinkedList(LinkedList* list) {
+void llDelete(LinkedList* list) {
 	if (list == NULL)
 		return;
 
-	removeAllNodes(list);
+	llRemoveAllNodes(list);
 	free(list);
 }
 
-int linkedListIsEmpty(LinkedList* list) {
+int llIsEmpty(LinkedList* list) {
 	return list->size == 0;
 }

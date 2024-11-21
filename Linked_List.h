@@ -17,22 +17,22 @@ typedef struct {
 
 LinkedList* initLinkedList();
 
-Node* createNode(void*);
+Node* llCreateNode(void*, size_t);
 
-void insertAtHead(LinkedList*, void*, size_t);
+void llInsertAtHead(LinkedList*, void*, size_t);
 
-void insertAtTail(LinkedList*, void*, size_t);
+void llInsertAtTail(LinkedList*, void*, size_t);
 
-void removeAtHead(LinkedList*);
+void llRemoveAtHead(LinkedList*);
 
-void removeAtTail(LinkedList*);
+void llRemoveAtTail(LinkedList*);
 
-void* getAtIndex(LinkedList*, int);
+void* llGetAtIndex(LinkedList*, int);
 
-void removeAllNodes(LinkedList*);
+void llRemoveAllNodes(LinkedList*);
 
-void deleteLinkedList(LinkedList*);
+void llDelete(LinkedList*);
 
-int linkedListisEmpty(LinkedList*);
+int llIsEmpty(LinkedList*);
 
 #endif

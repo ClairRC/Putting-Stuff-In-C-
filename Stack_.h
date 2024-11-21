@@ -19,14 +19,14 @@ typedef struct {
 
 Stack* initStack(size_t size);
 
-void push(Stack*, void*);
+void stPush(Stack*, void*);
 
-void pop(Stack*);
+void stPop(Stack*);
 
-void* peekStack(Stack*);
+void* stPeek(Stack*);
 
-void deleteStack(Stack*);
+void stDelete(Stack*);
 
-int stackIsEmpty(Stack*);
+int stIsEmpty(Stack*);
 
 #endif

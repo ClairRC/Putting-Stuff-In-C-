@@ -8,6 +8,7 @@
 
 typedef struct {
 	struct HashMapNode* nextNode;
+	size_t size;
 	void* value;
 	char* key;
 } HashMapNode;
@@ -23,14 +24,21 @@ HashMap* initHashMap();
 
 unsigned long hash(char* str);
 
-void put(HashMap*, char*, void*, size_t);
+void hmPut(HashMap*, char*, void*, size_t);
 
-void* getValue(HashMap*, char*);
+void hmRemoveValue(HashMap*, char*);
 
-//int hashMapIsEmpty(HashMap*);
+void* hmGetValueFromKey(HashMap*, char*);
 
-void addHashMapNode(HashMap*, HashMapNode*, int);
+HashMapNode* hmAddNode(HashMap*, HashMapNode*, int);
 
-HashMapNode* createHashMapNode(char*, void*, size_t);
+void hmRemoveNode(HashMap*, HashMapNode*);
 
+HashMapNode* hmCreateNode(char*, void*, size_t);
+
+void hmResize(HashMap*);
+
+int hmIsEmpty(HashMap*);
+
+void hmDelete(HashMap**);
 #endif

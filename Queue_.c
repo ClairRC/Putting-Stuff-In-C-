@@ -18,18 +18,18 @@ Queue* initQueue() {
 	return q;
 }
 
-void poll(Queue* q) {
+void qPoll(Queue* q) {
 	if (q == NULL)
 		return;
 
 	LinkedList* list = q->list;
 
-	removeAtTail(list);
+	llRemoveAtTail(list);
 	
 	--q->size;
 }
 
-void* peekQueue(Queue* q) {
+void* qPeek(Queue* q) {
 	if (q == NULL || q->list == NULL || q->list->tail == NULL)
 		return NULL;
 
@@ -39,27 +39,27 @@ void* peekQueue(Queue* q) {
 	return listTail->data;
 }
 
-void offer(Queue* q, void* data, size_t size) {
+void qOffer(Queue* q, void* data, size_t size) {
 	if (q == NULL)
 		return;
 
 	LinkedList* list = q->list;
-	insertAtHead(list, data, size);
+	llInsertAtHead(list, data, size);
 
 	++q->size;
 }
 
-void deleteQueue(Queue* q) {
+void qDelete(Queue* q) {
 	if (q == NULL)
 		return;
 
 	LinkedList* list = q->list;
 
-	deleteLinkedList(list);
+	llDelete(list);
 
 	free(q);
 }
 
-int queueIsEmpty(Queue* q) {
+int qIsEmpty(Queue* q) {
 	return q->size == 0;
 }

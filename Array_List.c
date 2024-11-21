@@ -22,12 +22,12 @@ ArrayList* initArrayList(size_t dataTypeSize) {
 	return list;
 }
 
-void add(ArrayList* list, void* data) {
+void alAdd(ArrayList* list, void* data) {
 	if (list == NULL)
 		return;
 
 	if (list->size >= list->currMaxSize)
-		resize(list);
+		alResize(list);
 
 	void* destAddress = (char*)list->arr + list->size * list->elementSize;
 	memcpy(destAddress, data, list->elementSize);
@@ -35,7 +35,7 @@ void add(ArrayList* list, void* data) {
 	++list->size;
 }
 
-void addAtIndex(ArrayList* list, void* data, int index) {
+void alAddAtIndex(ArrayList* list, void* data, int index) {
 	if (index < 0)
 		index = 0;
 
@@ -43,7 +43,7 @@ void addAtIndex(ArrayList* list, void* data, int index) {
 		return;
 
 	if (list->size >= list->currMaxSize)
-		resize(list);
+		alResize(list);
 
 	int lSize = list->size;
 	for (int i = lSize - 1; i >= index; --i) {
@@ -58,7 +58,7 @@ void addAtIndex(ArrayList* list, void* data, int index) {
 	++list->size;
 }
 
-void removeAtIndex(ArrayList* list, int index) {
+void alRemoveAtIndex(ArrayList* list, int index) {
 	if (index < 0)
 		index = 0;
 
@@ -76,7 +76,7 @@ void removeAtIndex(ArrayList* list, int index) {
 	--list->size;
 }
 
-void set(ArrayList* list, void* data, int index) {
+void alSetAtIndex(ArrayList* list, void* data, int index) {
 	if (index < 0)
 		index = 0;
 
@@ -88,7 +88,7 @@ void set(ArrayList* list, void* data, int index) {
 	memcpy(destAddress, data, list->elementSize);
 }
 
-void* get(ArrayList* list, int index) {
+void* alGetFromIndex(ArrayList* list, int index) {
 	if (index < 0)
 		index = 0;
 
@@ -100,7 +100,7 @@ void* get(ArrayList* list, int index) {
 	return dataToReturn;
 }
 
-void clearArrayList(ArrayList* list) {
+void alClear(ArrayList* list) {
 	if (list == NULL)
 		return;
 
@@ -118,7 +118,7 @@ void clearArrayList(ArrayList* list) {
 	list->size = 0;
 }
 
-void resize(ArrayList* list) {
+void alResize(ArrayList* list) {
 	if (list == NULL)
 		return;
 
@@ -139,7 +139,7 @@ void resize(ArrayList* list) {
 	list->currMaxSize *= 2;
 }
 
-void deleteArrayList(ArrayList* list) {
+void alDelete(ArrayList* list) {
 	if (list == NULL)
 		return;
 
@@ -147,6 +147,6 @@ void deleteArrayList(ArrayList* list) {
 	free(list);
 }
 
-int arrayListIsEmpty(ArrayList* list) {
+int alIsEmpty(ArrayList* list) {
 	return list->size == 0;
 }

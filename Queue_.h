@@ -10,14 +10,14 @@ typedef struct{
 
 Queue* initQueue(void);
 
-void poll(Queue*);
+void qPoll(Queue*);
 
-void* peekQueue(Queue*);
+void* qPeek(Queue*);
 
-void offer(Queue*, void*, size_t);
+void qOffer(Queue*, void*, size_t);
 
-void deleteQueue(Queue*);
+void qDelete(Queue*);
 
-int queueIsEmpty(Queue*);
+int qIsEmpty(Queue*);
 
 #endif

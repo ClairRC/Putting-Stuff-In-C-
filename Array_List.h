@@ -11,22 +11,22 @@ typedef struct {
 
 ArrayList* initArrayList(size_t);
 
-void add(ArrayList*, void*);
+void alAdd(ArrayList*, void*);
 
-void addAtIndex(ArrayList*, void*, int);
+void alAddAtIndex(ArrayList*, void*, int);
 
-void removeAtIndex(ArrayList*, int);
+void alRemoveAtIndex(ArrayList*, int);
 
-void set(ArrayList*, void*, int);
+void alSetAtIndex(ArrayList*, void*, int);
 
-void* get(ArrayList*, int);
+void* alGetFromIndex(ArrayList*, int);
 
-void clearArrayList(ArrayList*);
+void alClear(ArrayList*);
 
-void resize(ArrayList*);
+void alResize(ArrayList*);
 
-void deleteArrayList(ArrayList*);
+void alDelete(ArrayList*);
 
-int arrayListIsEmpty(ArrayList*);
+int alIsEmpty(ArrayList*);
 
 #endif
