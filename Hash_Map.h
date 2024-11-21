@@ -2,22 +2,22 @@
 #define Hash_Map
 
 #define HashMapStartSize 16
-#define HashMapMaxCapacity 0.7
+#define HashMapThreshold 0.7
 
-#include "Array_List.h"
 #include <stddef.h>
 
 typedef struct {
-	void* arr;
-	int currMaxSize;
-	float maxCapacity;
-	int size;
-} HashMap;
-
-typedef struct {
+	struct HashMapNode* nextNode;
 	void* value;
 	char* key;
 } HashMapNode;
+
+typedef struct {
+	struct HashMapNode** arr;
+	int currMaxSize;
+	int maxCapacity;
+	int size;
+} HashMap;
 
 HashMap* initHashMap();
 
@@ -27,9 +27,9 @@ void put(HashMap*, char*, void*, size_t);
 
 void* getValue(HashMap*, char*);
 
-void* getKey(HashMap*, void*);
+//int hashMapIsEmpty(HashMap*);
 
-int hashMapIsEmpty(HashMap*);
+void addHashMapNode(HashMap*, HashMapNode*, int);
 
 HashMapNode* createHashMapNode(char*, void*, size_t);
 
