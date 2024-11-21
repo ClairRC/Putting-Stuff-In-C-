@@ -80,8 +80,20 @@ void addHashMapNode(HashMap* map, HashMapNode* node, int index) {
 //Creates HashMap node.
 //This carries the value and the key
 HashMapNode* createHashMapNode(char* key, void* value, size_t size) {
+<<<<<<< HEAD
 	//Create node
 	HashMapNode* node = (HashMapNode*) malloc(sizeof(HashMapNode));
+=======
+	HashMapNode* newNode = malloc(sizeof(HashMapNode));
+
+	if (newNode == NULL)
+		return NULL;
+	
+	int keySize = 0;
+	while (key[keySize++] != NULL);
+
+	newNode->key = malloc(keySize * sizeof(char));
+>>>>>>> c7c0e548c837dc8fb74fb9e643e9b3c0b9c1ac06
 	
 	//Return if node can't be allocated
 	if (node == NULL)
